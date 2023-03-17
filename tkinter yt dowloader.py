@@ -73,6 +73,3 @@ try:
 finally:
     root.mainloop()
 
-# https://youtu.be/1qW7LLk1ZDc
-
-
