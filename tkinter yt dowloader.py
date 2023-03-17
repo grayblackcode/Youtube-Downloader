@@ -27,7 +27,7 @@ link_entry.focus()
 
 
 # download button
-def download_video_clicked():
+def download_clicked():
     print("Welcome to Youtube Downloader.")
     showinfo(
         title='Information',
@@ -47,7 +47,7 @@ download_button = ttk.Button(
     image=download_icon,
     text='Download',
     compound=tk.LEFT,
-    command=download_video_clicked
+    command=download_clicked
 )
 
 download_button.pack(ipadx=5, ipady=5, expand=True)
@@ -72,4 +72,3 @@ try:
     windll.shcore.SetProcessDpiAwareness(1)
 finally:
     root.mainloop()
-
