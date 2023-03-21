@@ -10,8 +10,8 @@ root.iconbitmap("C:/Users/hp/Desktop/python/tkinter stuff/yt-icon.ico")
 root.title("Youtube Downloader")
 
 tk.Label(root, text="Hello :)\nWelcome to Youtube Downloader.\n").pack()
-
-url = tk.StringVar()
+url = str(tk.StringVar())
+print(url)
 
 # Link frame
 link = ttk.Frame(root)
@@ -28,17 +28,14 @@ link_entry.focus()
 
 # download button
 def download_clicked():
-    print("Welcome to Youtube Downloader.")
-    showinfo(
-        title='Information',
-        message='Download has began!'
-    )
-    yt = YouTube(f"{url}")
+    yt = YouTube(url)
     stream = yt.streams.get_by_itag(22)
     size = round(stream.filesize / 10 ** 6, 2)
-
-    print(f"Downloading {yt.title}, \n Length: {yt.length} seconds, \n Size: {size} MBs")
-
+    showinfo(
+        title='Information',
+        message='Downloading'
+        # message='Downloading {yt.title}, \n Length: {yt.length} seconds, \n Size: {size} MBsDownload has began!'
+    )
 
 download_icon = tk.PhotoImage(file="C:/Users/hp/Desktop/python/tkinter stuff/download icon.png")
 
@@ -59,12 +56,7 @@ exit_button = ttk.Button(
     command=lambda: root.quit()
 )
 
-exit_button.pack(
-    ipadx=5,
-    ipady=5,
-    expand=True,
-    side="left"
-)
+exit_button.pack( ipadx=5, ipady=5, expand=True)
 
 try:
     from ctypes import windll
