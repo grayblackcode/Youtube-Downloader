@@ -6,12 +6,11 @@ from pytube import YouTube
 root = tk.Tk()
 root.geometry("400x200")
 root.resizable(False, False)
-root.iconbitmap("C:/Users/hp/Desktop/python/tkinter stuff/yt-icon.ico")
+# root.iconbitmap("C:/Users/hp/Desktop/python/tkinter stuff/yt-icon.ico")
 root.title("Youtube Downloader")
 
 tk.Label(root, text="Hello :)\nWelcome to Youtube Downloader.\n").pack()
 url = str(tk.StringVar())
-print(url)
 
 # Link frame
 link = ttk.Frame(root)
@@ -28,20 +27,33 @@ link_entry.focus()
 
 # download button
 def download_clicked():
-    yt = YouTube(url)
+    yt = YouTube(link_entry.get())
     stream = yt.streams.get_by_itag(22)
     size = round(stream.filesize / 10 ** 6, 2)
     showinfo(
         title='Information',
-        message='Downloading'
-        # message='Downloading {yt.title}, \n Length: {yt.length} seconds, \n Size: {size} MBsDownload has began!'
+        # message='Downloading',
+        message=f'Downloading {yt.title}, \n Length: {yt.length} seconds, \n Size: {size} MBsDownload has began!'
     )
+    try:
+        stream.download()
+        showinfo(
+            title='Download Status',
+            message="Download Complete!"
+        )
 
-download_icon = tk.PhotoImage(file="C:/Users/hp/Desktop/python/tkinter stuff/download icon.png")
+    except:
+        showinfo(
+            title='Download Status',
+            message="Download Incomplete!"
+        )
+
+
+# download_icon = tk.PhotoImage(file="C:/Users/hp/Desktop/python/tkinter stuff/download icon.png")
 
 download_button = ttk.Button(
     root,
-    image=download_icon,
+    # image=download_icon,
     text='Download',
     compound=tk.LEFT,
     command=download_clicked
