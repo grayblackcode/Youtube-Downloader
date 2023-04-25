@@ -31,7 +31,6 @@ def download_clicked():
     size = round(stream.filesize / 10 ** 6, 2)
     showinfo(
         title='Information',
-        # message='Downloading',
         message=f'Downloading {yt.title},\nLength: {yt.length} seconds,\nSize: {size} MBs.\nDownload has began!'
     )
     try:
