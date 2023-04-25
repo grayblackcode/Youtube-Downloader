@@ -31,6 +31,7 @@ def download_clicked():
     size = round(stream.filesize / 10 ** 6, 2)
     showinfo(
         title='Information',
+        # message='Downloading',
         message=f'Downloading {yt.title},\nLength: {yt.length} seconds,\nSize: {size} MBs.\nDownload has began!'
     )
     try:
@@ -47,12 +48,19 @@ def download_clicked():
         )
 
 
-download_button = ttk.Button( root, text='Download', compound=tk.LEFT, command=download_clicked)
+download_button = ttk.Button(
+    root, 
+    text='Download', 
+    compound=tk.LEFT, 
+    command=download_clicked)
 
 download_button.pack(ipadx=5, ipady=5, expand=True)
 
 # Exit button
-exit_button = ttk.Button(root, text='Exit', command=lambda: root.quit())
+exit_button = ttk.Button(
+    root, 
+    text='Exit', 
+    command=lambda: root.quit())
 
 exit_button.pack( ipadx=5, ipady=5, expand=True)
 
