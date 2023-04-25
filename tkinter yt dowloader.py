@@ -6,7 +6,6 @@ from pytube import YouTube
 root = tk.Tk()
 root.geometry("400x200")
 root.resizable(False, False)
-# root.iconbitmap("C:/Users/hp/Desktop/python/tkinter stuff/yt-icon.ico")
 root.title("Youtube Downloader")
 
 tk.Label(root, text="Hello :)\nWelcome to Youtube Downloader.\n").pack()
@@ -33,7 +32,7 @@ def download_clicked():
     showinfo(
         title='Information',
         # message='Downloading',
-        message=f'Downloading {yt.title}, \n Length: {yt.length} seconds, \n Size: {size} MBsDownload has began!'
+        message=f'Downloading {yt.title},\nLength: {yt.length} seconds,\nSize: {size} MBs.\nDownload has began!'
     )
     try:
         stream.download()
@@ -49,24 +48,12 @@ def download_clicked():
         )
 
 
-# download_icon = tk.PhotoImage(file="C:/Users/hp/Desktop/python/tkinter stuff/download icon.png")
-
-download_button = ttk.Button(
-    root,
-    # image=download_icon,
-    text='Download',
-    compound=tk.LEFT,
-    command=download_clicked
-)
+download_button = ttk.Button( root, text='Download', compound=tk.LEFT, command=download_clicked)
 
 download_button.pack(ipadx=5, ipady=5, expand=True)
 
 # Exit button
-exit_button = ttk.Button(
-    root,
-    text='Exit',
-    command=lambda: root.quit()
-)
+exit_button = ttk.Button(root, text='Exit', command=lambda: root.quit())
 
 exit_button.pack( ipadx=5, ipady=5, expand=True)
 
