@@ -48,19 +48,12 @@ def download_clicked():
         )
 
 
-download_button = ttk.Button(
-    root, 
-    text='Download', 
-    compound=tk.LEFT, 
-    command=download_clicked)
+download_button = ttk.Button( root, text='Download', compound=tk.LEFT, command=download_clicked)
 
 download_button.pack(ipadx=5, ipady=5, expand=True)
 
 # Exit button
-exit_button = ttk.Button(
-    root, 
-    text='Exit', 
-    command=lambda: root.quit())
+exit_button = ttk.Button(root, text='Exit', command=lambda: root.quit())
 
 exit_button.pack( ipadx=5, ipady=5, expand=True)
 
@@ -70,3 +63,4 @@ try:
     windll.shcore.SetProcessDpiAwareness(1)
 finally:
     root.mainloop()
+
