@@ -17,7 +17,6 @@ def download_video():
         stream.download()
         print("Download Complete :)")
 
-    print("Exiting program.")
-
+    print("Exiting program.\nThank You :D\n")
 
 download_video()
